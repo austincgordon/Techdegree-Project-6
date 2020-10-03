@@ -17,10 +17,25 @@ let phrases = [
   "Play That Funky Music"
 ]
 // Gets a Random Phrase for the Game
-/* function getRandomPhraseAsArray (arr) {
+function getRandomPhraseAsArray (arr) {
   let randomPhrase = Math.floor(Math.random() * arr.length);
-  let arrayOfStrings = arr.split(' ');
-  console.log(arrayOfStrings[randomPhrase]);
+  let arrayOfStrings = arr[randomPhrase].split('');
+  return arrayOfStrings;
 }
 
-getRandomPhraseAsArray(phrases); */
+const phraseArray = getRandomPhraseAsArray(phrases);
+
+function addPhraseToDisplay (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let listItem = document.createElement('li');
+    let ul = document.getElementsByTagName('ul')[0];
+    if (arr !== ' ') {
+      listItem.className = "letter";
+    } else {
+      return listItem;
+    }
+    listItem.textContent = arr;
+    ul.appendChild(listItem);
+    phrase.appendChild(ul);
+  }
+}
