@@ -1,15 +1,11 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-let missed = 0;
 const startGame = document.getElementsByClassName('btn__reset')[0];
+const resetGame = document.getElementsByClassName('play_again')[0];
 const startScreen = document.getElementById('overlay');
-const button = document.querySelector('button');
-let title = document.getElementsByClassName("title")[0];
-
-// Start Game Initiation
-startGame.addEventListener('click', () => {
-  startScreen.style.display = "none";
-});
+const buttons = document.getElementsByTagName('button');
+const title = document.getElementsByClassName("title")[0];
+let missed = 0;
 
 let phrases = [
   "PURPLE RAIN",
@@ -18,6 +14,12 @@ let phrases = [
   "BRICK HOUSE",
   "PLAY THAT FUNKY MUSIC"
 ]
+
+// Hides the Start Screen and Begins the Game
+startGame.addEventListener('click', () => {
+  startScreen.style.display = "none";
+});
+
 // Gets a Random Phrase for the Game
 function getRandomPhraseAsArray(arr) {
   let randomPhrase = Math.floor(Math.random() * arr.length);
@@ -46,35 +48,48 @@ function addPhraseToDisplay(arr) {
 addPhraseToDisplay(phraseArray);
 
 // Checks to see if the letter is a match
-function checkLetter(button) {
+function checkLetter(buttons) {
   let ul = document.getElementsByTagName('ul')[0];
   let listItems = ul.children;
   let match = null;
   for (let i = 0; i < listItems.length; i++) {
     const letter = listItems[i].textContent.toLowerCase();
-    if (button.textContent === letter) {
+    if (buttons.textContent === letter) {
       listItems[i].classList.add("show");
-      match = button.textContent;
+      match = buttons.textContent;
     }
   }
   return match;
 }
 
+// Checks to see if the player won or lost the game
 function checkWin() {
   const letterLi = document.getElementsByClassName("letter");
   const showLi = document.getElementsByClassName("show");
+  let ul = document.getElementsByTagName('ul')[0];
+  let listItems = ul.children;
   if (letterLi.length === showLi.length) {
     startScreen.classList.add("win");
-    title.textContent = "You win, motherfucker. Also, HI I LOVE YOU."
+    title.textContent = "Congrats, you won!"
     startScreen.style.display = "flex";
+    startGame.style.display = "none";
+    resetGame.style.display = "flex";
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].classList.remove("show");
+    }
   } else if (missed >= 5) {
     startScreen.classList.add("lose");
-    title.textContent = "You lose, motherfucker."
+    title.textContent = "Better luck next time. :/"
     startScreen.style.display = "flex";
+    startGame.style.display = "none";
+    resetGame.style.display = "flex";
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].classList.remove("show");
+    }
   }
 }
 
-
+// Listens for correct or incorrect button clicks on the on-screen keyboard
 qwerty.addEventListener('click', (e) => {
 
   // Checks to see if a button was pressed
@@ -95,7 +110,12 @@ qwerty.addEventListener('click', (e) => {
 
 });
 
-/* startGame.addEventListener('click', () => {
+// Resets the game so the player can play again
+resetGame.addEventListener('click', () => {
+  location.reload(); // Reloads the page
   missed = 0;
-
-}); */
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove("chosen");
+    buttons[i].removeAttribute("disabled");
+  }
+});

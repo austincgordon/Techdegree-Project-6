@@ -6,10 +6,10 @@
 :root {
   --color-win: #78CF82;
   --color-lose: #D94545;
-  --color-start: #5b85b7;
+  --color-start: #955bb7;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
+  --color-keys: #373a28;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
   --font-size-medium: 20px;
@@ -29,7 +29,9 @@ body {
   height: 100vh;
 }
 
-li, ol, ul {
+li,
+ol,
+ul {
   padding: 0;
   display: inline-block;
 }
@@ -79,9 +81,10 @@ button {
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
+  height: 60px;
+  width: 60px;
   padding: 20px 1px 0 1px;
+  margin-top: 20px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -89,12 +92,14 @@ button {
 }
 
 .space {
-  width: 15px;
+  width: 20px;
 }
 
 .show {
   color: #000;
-  background-color: #76CE82;
+  background-color: #25add6;
+  transform: rotate(360deg);
+  transition: .5s ease-in-out;
 }
 
 /* Keyboard */
@@ -117,6 +122,7 @@ button {
   background: #FFFFFF;
   border-radius: 5px;
   font-size: var(--font-size-medium);
+  cursor: pointer;
 }
 
 /* Overlay */
@@ -132,6 +138,16 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+}
+
+.play_again {
+  display: none;
+  padding: 8px;
+  margin: 50px auto;
+  background: #FFFFFF;
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  cursor: pointer;
 }
 
 .title {
