@@ -4,16 +4,16 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
+  --color-win: #78cf82;
+  --color-lose: #d94545;
   --color-start: #955bb7;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  --color-neutral-light: #d2d2d2;
   --color-keys: #373a28;
-  --color-keys-light: #E5E5E5;
+  --color-keys-light: #e5e5e5;
   --font-size-large: 60px;
   --font-size-medium: 20px;
-  --transition: all .2s ease-in-out;
+  --transition: all 0.2s ease-in-out;
 }
 
 /* main */
@@ -47,7 +47,7 @@ h2 {
 button {
   margin: 6px;
   border: 1px solid transparent;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: var(--color-keys);
   font-size: var(--font-size-medium);
   background-color: var(--color-keys-light);
@@ -99,7 +99,7 @@ button {
   color: #000;
   background-color: #25add6;
   transform: rotate(360deg);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 /* Keyboard */
@@ -113,13 +113,13 @@ button {
   background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   cursor: pointer;
@@ -131,7 +131,7 @@ button {
   display: flex;
   flex-direction: column;
   position: fixed;
-  color: #FFFFFF;
+  color: #ffffff;
   justify-content: center;
   top: 0;
   bottom: 0;
@@ -140,18 +140,8 @@ button {
   border-radius: 5px;
 }
 
-.play_again {
-  display: none;
-  padding: 8px;
-  margin: 50px auto;
-  background: #FFFFFF;
-  border-radius: 5px;
-  font-size: var(--font-size-medium);
-  cursor: pointer;
-}
-
 .title {
-  color: #FFF;
+  color: #fff;
 }
 
 .start {
